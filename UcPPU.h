@@ -188,7 +188,7 @@ class UcPPU {
   void renderNametableScanline(Layer bg, uint16_t* scanline, uint8_t screen_y, uint8_t transparent);
   UcPPUDriver* driver;
   
-  uint16_t bg_table[3][UCPPU_BG_HEIGHT][UCPPU_WIDTH];
+  uint16_t bg_table[3][UCPPU_BG_HEIGHT][UCPPU_BG_WIDTH];
   uint8_t bg_pos[3][2];
   uint8_t spr_offset_x = 0;
   uint8_t spr_offset_y = 0;
