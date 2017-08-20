@@ -118,7 +118,7 @@ void UcPPU::render() {
         entry = sprites[index][0];
         
         // No tile; skip this sprite
-        if ((entry & 0x7FF) == UCPPU_NO_TILE) { 
+        if ((entry & UCPPU_NO_TILE) == UCPPU_NO_TILE) { 
           continue; 
         }
         entry = sprites[index][1];
@@ -149,7 +149,9 @@ void UcPPU::render() {
     driver->startData();
     for (screen_y = 0; screen_y < height; screen_y++) {
       //Initialize the scanline
-      memset(scanline, bg_color, width << 1);
+      for (screen_x = 0; screen_x < width; screen_x++) {
+        scanline[screen_x] = bg_color;
+      }
       if (bg_enabled[bg0]) {
         renderNametableScanline(bg0, &scanline[0], screen_y, false);
       }
