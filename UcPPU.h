@@ -29,34 +29,95 @@ class UcPPU {
   void render();
   
   /**
-   * Modify the PPU
-   */
-  void setSpriteTile(uint8_t spriteIndex, uint16_t tileIndex);
-  void setSprite(uint8_t spriteIndex, uint16_t tileIndex, uint8_t paletteIndex);
-  void setSprite(uint8_t spriteIndex, uint16_t tileIndex, uint8_t paletteIndex, uint8_t flipX, uint8_t flipY);
-  void setSprite(uint8_t spriteIndex, uint16_t rawReference);
-  void setSpritePalette(uint8_t spriteIndex, uint8_t paletteIndex);
-  void setSpriteOrientation(uint8_t spriteIndex, uint8_t flipX, uint8_t flipY);
-  void setSpritePosition(uint8_t spriteIndex, uint8_t x, uint8_t y);
+   * Modify the PPU state
+   **/
   
+  /**
+   * Set the tile index of a sprite.  A tile index of UCPPU_NO_TILE will disable the sprite.
+   **/
+  void setSpriteTile(uint8_t spriteIndex, uint16_t tileIndex);
+  /**
+   * Set the tile and palette for a sprite
+   **/
+  void setSprite(uint8_t spriteIndex, uint16_t tileIndex, uint8_t paletteIndex);
+  /**
+   * Set the tile, palette, and orientation for a sprite
+   **/
+  void setSprite(uint8_t spriteIndex, uint16_t tileIndex, uint8_t paletteIndex, uint8_t flipX, uint8_t flipY);
+  /**
+   * Set the tile, palette, and orientation for a sprite using a prepared reference int
+   **/
+  void setSprite(uint8_t spriteIndex, uint16_t rawReference);
+  /**
+   * Set the palette for a sprite. A palette index of UCPPU_NO_PALETTE will use a grayscale palette.
+   */
+  void setSpritePalette(uint8_t spriteIndex, uint8_t paletteIndex);
+  /**
+   * Set the orientation for a sprite
+   **/
+  void setSpriteOrientation(uint8_t spriteIndex, uint8_t flipX, uint8_t flipY);
+  /**
+   * Set the X and Y position of a sprite
+   **/
+  void setSpritePosition(uint8_t spriteIndex, uint8_t x, uint8_t y);
+  /**
+   * Set the global sprite offset (the entire sprite layer will be shifted left and up by this amount
+   **/
   void setSpriteOffset(uint8_t x, uint8_t y);
 
 
-  
+  /**
+   * Set the background color to an rgb565 color.  This will be the "Bottom" of the rendered image
+   **/
   void setBackgroundColor(uint16_t color);
+  /**
+   * Set the background color to an r, g, b value.  R, G, and B are 0..255
+   **/
   void setBackgroundColor(uint8_t r, uint8_t g, uint8_t b);
 
+  /**
+   * Set the tile index of a tile on a layer. A tile index of UCPPU_NO_TILE will disable the sprite.
+   **/
   void setBackgroundTile(Layer backgroundIndex, uint8_t x, uint8_t y, uint16_t tileIndex);
+  /**
+   * Set the tile and palette indices of a tile on a layer
+   **/
   void setBackground(Layer backgroundIndex, uint8_t x, uint8_t y, uint16_t tileIndex, uint8_t paletteIndex);
+  /**
+   * Set the tile and palette indices, and orientation of a tile on a layer
+   **/
   void setBackground(Layer backgroundIndex, uint8_t x, uint8_t y, uint16_t tileIndex, uint8_t paletteIndex, uint8_t flipX, uint8_t flipY);
+  /**
+   * Set the tile and palette indices, and orientation of a tile on a layer by prepared int
+   **/  
   void setBackground(Layer backgroundIndex, uint8_t x, uint8_t y, uint16_t rawReference);
+  /**
+   * Set the palette index of a tile on a layer.  A palette index of UCPPU_NO_PALETTE will use a grayscale palette.
+   **/
   void setBackgroundPalette(Layer backgroundIndex, uint8_t x, uint8_t y, uint8_t paletteIndex);
+  /**
+   * Set the orientation of a tile on a layer.
+   **/
   void setBackgroundOrientation(Layer backgroundIndex, uint8_t x, uint8_t y, uint8_t flipX, uint8_t flipY);
+  /**
+   * Set the position of a layer
+   **/
   void setBackgroundOffset(Layer backgroundIndex, uint8_t x, uint8_t y);
-
+  /**
+   * Enable a tile layer
+   **/
   void enableLayer(Layer backgroundIndex);
+  /**
+   * Disable a tile layer
+   **/
   void disableLayer(Layer backgroundIndex);
+  /**
+   * Enable the sprites
+   **/
   void enableSprites();
+  /**
+   * Disable the sprites
+   **/
   void disableSprites();
 
     
