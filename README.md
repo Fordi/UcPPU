@@ -8,8 +8,7 @@ At its present state, it only works for the Pixel 2.0, or the Arduino Zero with 
 
 ### Note:
 
-This is a low-priority work in progress, and I'm aware it's slow for the 
-moment (but no longer broken!  yay! see 
+This is a low-priority work in progress (see 
 [open issues](https://github.com/Fordi/P2PPU/issues)).  
 `[Free-for-all]`-tagged issues are free for anyone to fix (though I'll probably 
 get to them).  Tickets for which I want to reserve responsibility
