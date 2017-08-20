@@ -274,6 +274,63 @@ void UcPPU::setBackgroundColor(uint8_t r, uint8_t g, uint8_t b) {
   bg_color = ((r >> 3) << 11) | ((g >> 2) << 5) | (b >> 3);
 }
 
+uint8_t UcPPU::getSpriteOrientationX(uint8_t spriteIndex) {
+    return FLIPX(sprites[spriteIndex][0]);
+}
+uint8_t UcPPU::getSpriteOrientationY(uint8_t spriteIndex) {
+    return FLIPY(sprites[spriteIndex][0]);
+}
+uint8_t UcPPU::getSpritePalette(uint8_t spriteIndex) {
+    return PALETTE(sprites[spriteIndex][0]);
+}
+uint16_t UcPPU::getSpriteTile(uint8_t spriteIndex) {
+    return TILE(sprites[spriteIndex][0]);
+}
+uint8_t UcPPU::getSpriteX(uint8_t spriteIndex) {
+    return HIBYTE(sprites[spriteIndex][1]);
+}
+uint8_t UcPPU::getSpriteY(uint8_t spriteIndex) {
+    return LOBYTE(sprites[spriteIndex][1]);
+}
+uint16_t UcPPU::getSpriteReference(uint8_t spriteIndex) {
+    return sprites[spriteIndex][0];
+}
+uint16_t UcPPU::getSpritePosition(uint8_t spriteIndex) {
+    return sprites[spriteIndex][1];
+}
+uint32_t UcPPU::getSprite(uint8_t spriteIndex) {
+    return (((uint32_t)sprites[spriteIndex][0]) << 16) | sprites[spriteIndex][1];
+}
+uint8_t UcPPU::getBackgroundOrientationX(Layer layer, uint8_t x, uint8_t y) {
+    return FLIPX(bg_table[layer][y][x]);
+}
+uint8_t UcPPU::getBackgroundOrientationY(Layer layer, uint8_t x, uint8_t y) {
+    return FLIPY(bg_table[layer][y][x]);
+}
+uint8_t UcPPU::getBackgroundPalette(Layer layer, uint8_t x, uint8_t y) {
+    return PALETTE(bg_table[layer][y][x]);
+}
+uint16_t UcPPU::getBackgroundTile(Layer layer, uint8_t x, uint8_t y) {
+    return TILE(bg_table[layer][y][x]);
+}
+uint16_t UcPPU::getBackgroundReference(Layer layer, uint8_t x, uint8_t y) {
+    return bg_table[layer][y][x];
+}
+
+void UcPPU::setSpritePosition(uint8_t firstSprite, uint8_t lastSprite, uint8_t width, uint8_t x, uint8_t y) {
+    uint8_t lx = x;
+    uint8_t ly = y;
+    uint8_t tx = 0;
+    for (uint8_t i = firstSprite; i <= lastSprite; i++, lx+= 8, tx++) {
+        if (tx >= width) {
+            tx = 0;
+            lx = 0;
+            ly += 8;
+        }
+        sprites[i][1] = (lx << 8) | ly;
+    }
+}
+
 UcPPU::UcPPU(UcPPUDriver& ppuDriver, const uint32_t* tileTable, uint16_t numTiles, const uint16_t* paletteTable, uint16_t numPalettes) {
     driver = &ppuDriver;
     

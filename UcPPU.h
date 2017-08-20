@@ -120,7 +120,69 @@ class UcPPU {
    **/
   void disableSprites();
 
-    
+  /**
+   * Get a sprite's `flipX` bit
+   **/
+   uint8_t getSpriteOrientationX(uint8_t spriteIndex);
+  /**
+   * Get a sprite's `flipY` bit
+   **/
+   uint8_t getSpriteOrientationY(uint8_t spriteIndex);
+  /**
+   * Get a sprite's palette index
+   **/
+   uint8_t getSpritePalette(uint8_t spriteIndex);
+  /**
+   * Get a sprite's tile index
+   **/
+   uint16_t getSpriteTile(uint8_t spriteIndex);
+  /**
+   * Get a sprite's X position
+   **/
+   uint8_t getSpriteX(uint8_t spriteIndex);
+  /**
+   * Get a sprite's Y position
+   **/
+   uint8_t getSpriteY(uint8_t spriteIndex);
+  /**
+   * Get a sprite's raw reference (15.. h v pppp tttttttttt ..0, where 'h' is flipX, v is flipY, p is palette, and t is tile)
+   **/
+   uint16_t getSpriteReference(uint8_t spriteIndex);
+  /**
+   * Get a sprite's raw position (15.. XXXXXXXX YYYYYYYY ..0)
+   **/
+   uint16_t getSpritePosition(uint8_t spriteIndex);
+  /**
+   * Get a sprite's complete record (32.. h v pppp tttttttttt XXXXXXXX YYYYYYYY ..0)
+   */
+   uint32_t getSprite(uint8_t spriteIndex);
+
+  /**
+   * Get a layer tile's `flipX` bit
+   **/
+   uint8_t getBackgroundOrientationX(Layer layer, uint8_t x, uint8_t y);
+  /**
+   * Get a layer tile's `flipY` bit
+   **/
+   uint8_t getBackgroundOrientationY(Layer layer, uint8_t x, uint8_t y);
+  /**
+   * Get a layer tile's palette index
+   **/
+   uint8_t getBackgroundPalette(Layer layer, uint8_t x, uint8_t y);
+  /**
+   * Get a layer tile's  tile index
+   **/
+   uint16_t getBackgroundTile(Layer layer, uint8_t x, uint8_t y);
+  /**
+   * Get a layer tile's raw reference (16.. h v pppp tttttttttt ..0)
+   **/
+   uint16_t getBackgroundReference(Layer layer, uint8_t x, uint8_t y);
+
+  /**
+   * Set position of a range of sprites at 8x8 offsetting, wrapping at `width` 8x8 tiles
+   **/
+  void setSpritePosition(uint8_t firstSprite, uint8_t lastSprite, uint8_t width, uint8_t x, uint8_t y);
+  
  private:
   void renderNametableScanline(Layer bg, uint16_t* scanline, uint8_t screen_y, uint8_t transparent);
   UcPPUDriver* driver;
