@@ -19,6 +19,7 @@ enum Layer {
 class UcPPU {
  public:
   UcPPU(UcPPUDriver& ppuDriver, const uint32_t* tileTable, uint16_t numTiles, const uint16_t* paletteTable, uint16_t numPalettes);
+  ~UcPPU();
   /**
    * Call during setup()
    */
@@ -200,6 +201,8 @@ class UcPPU {
   uint16_t nTiles;
   const uint16_t* palettes;
   uint16_t nPalettes;
+  uint16_t* scanline;
+  uint8_t* scanline_sprites;
   
 };
 
