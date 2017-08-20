@@ -1,6 +1,6 @@
 # μC PPU
 
-μC PPU is an Picture Processing Unit - like those used in older console gaming systems - originally designed for the 
+μC PPU is a Picture Processing Unit - like those used in older console gaming systems - originally designed for the 
 [Pixel 2.0](https://www.kickstarter.com/projects/rabidprototypes/pixel-20-the-arduino-compatible-smart-display),
 but slowly being generalized for other arduino-compatible hardware.
 
