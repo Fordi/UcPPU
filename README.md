@@ -74,4 +74,4 @@ Using the `ppu` local, you can place and palette background tiles and sprites,
 set the background's offset, etc.  Once your code is happy with its composition, 
 it can call ppu.render() to throw it at the screen.
 
-Remember, any issues / feature requests, please fill out an [issue](https://github.com/Fordi/P2PPU/issues), and I'll have a look!  Also, if something works, but is confusing, please create a ticket there with the prefix `[Docs] `.  All issues for μC PPU will be handled through the P2PPU repo for now.
+Remember, any issues / feature requests, please fill out an [issue](https://github.com/Fordi/P2PPU/issues), and I'll have a look!  Also, if something works, but is confusing, please create a ticket there with the prefix `[Docs] `.
