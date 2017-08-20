@@ -1,13 +1,10 @@
 # μC PPU
 
-μC PPU is an NES-like Picture Processing Unit, originally designed for the 
-[Pixel 2.0](https://www.kickstarter.com/projects/rabidprototypes/pixel-20-the-arduino-compatible-smart-display), 
-which is a neat little Cortex M0 based Arduino-compatible board with 
-OLED SSD1351 (16-bit, 128x128) screen.
+μC PPU is an Picture Processing Unit - like those used in older console gaming systems - originally designed for the 
+[Pixel 2.0](https://www.kickstarter.com/projects/rabidprototypes/pixel-20-the-arduino-compatible-smart-display),
+but slowly being generalized for other arduino-compatible hardware.
 
-Currently, I'm planning to generalize it to multiple microcontrollers and screens - 
-and have separated the code appropriately to achieve this - however, at its 
-present state, it only works for the Pixel 2.0.
+At its present state, it only works for the Pixel 2.0, or the Arduino Zero with an attached SSD1351-controlled display.
 
 ### Note:
 
