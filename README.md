@@ -58,7 +58,7 @@ The NES' PPU was laid out simply:
 The NES did rendering on a per-scanline basis, which meant that it could skip
 a lot of the memory needs required of a full framebuffer.
 
-This library implements a similar scheme.  To make use of it, you need to check out a [screen driver](https://github.com/Fordi/UcPPU_SSD1351), and set up PPUConfig.h and Resources.h:
+This library implements a similar scheme.  To make use of it, you need to check out a [screen driver](https://github.com/Fordi/UcPPU_DisplayDrivers), and set up PPUConfig.h and Resources.h:
 
 `tiles` is an array of uint32_t[8], each representing a tile, with one horizontal line of pixels per `uint32_t`, one pixel per nibble, each nibble referencing an index in the active palette.
 
