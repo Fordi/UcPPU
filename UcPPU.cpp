@@ -331,7 +331,7 @@ void UcPPU::setSpritePosition(uint8_t firstSprite, uint8_t lastSprite, uint8_t w
     for (uint8_t i = firstSprite; i <= lastSprite; i++, lx+= 8, tx++) {
         if (tx >= width) {
             tx = 0;
-            lx = 0;
+            lx = x;
             ly += 8;
         }
         sprites[i][1] = (lx << 8) | ly;
